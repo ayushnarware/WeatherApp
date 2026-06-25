@@ -7,9 +7,10 @@ import { FarmMapPage } from "@/features/map/FarmMapPage";
 
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/WeatherApp">
       <AppShell>
         <div id="main-content">
+          
           <Routes>
             <Route path="/" element={<DashboardPage />} />
             <Route path="/calendar" element={<CropCalendarPage />} />
