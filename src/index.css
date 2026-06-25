@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 198 50% 97%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --primary: 151 72% 34%;
+    --primary-foreground: 144 100% 98%;
+    --secondary: 190 72% 92%;
+    --secondary-foreground: 195 80% 18%;
+    --muted: 210 40% 94%;
+    --muted-foreground: 215 18% 39%;
+    --accent: 33 95% 92%;
+    --accent-foreground: 24 88% 18%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 86%;
+    --input: 214 32% 86%;
+    --ring: 151 72% 34%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222 45% 8%;
+    --foreground: 210 40% 98%;
+    --card: 222 42% 12%;
+    --card-foreground: 210 40% 98%;
+    --primary: 150 66% 45%;
+    --primary-foreground: 151 90% 8%;
+    --secondary: 194 45% 18%;
+    --secondary-foreground: 190 86% 88%;
+    --muted: 220 30% 17%;
+    --muted-foreground: 216 17% 72%;
+    --accent: 34 60% 18%;
+    --accent-foreground: 37 94% 86%;
+    --destructive: 0 68% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 217 25% 24%;
+    --input: 217 25% 24%;
+    --ring: 150 66% 45%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    margin: 0;
+    min-width: 320px;
+  }
+
+  button,
+  input,
+  select {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .smart-marker {
+    background: transparent;
+    border: 0;
+  }
+
+  .smart-marker span {
+    display: block;
+    width: 28px;
+    height: 28px;
+    border: 3px solid white;
+    border-radius: 999px;
+    box-shadow: 0 10px 25px rgb(15 23 42 / 0.35);
+  }
+
+  .smart-cloud-marker,
+  .smart-arrow-marker {
+    background: transparent;
+    border: 0;
+  }
+
+  .smart-cloud-marker span {
+    display: grid;
+    place-items: center;
+    filter: drop-shadow(0 10px 16px rgb(15 23 42 / 0.35));
+    animation: cloud-float 3.5s ease-in-out infinite;
+  }
+
+  .smart-arrow-marker span {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 2px solid rgb(255 255 255 / 0.9);
+    border-radius: 999px;
+    background: rgb(14 165 233 / 0.88);
+    color: white;
+    font-size: 24px;
+    font-weight: 800;
+    box-shadow: 0 12px 28px rgb(15 23 42 / 0.32);
+    transform-origin: center;
+  }
+
+  @keyframes cloud-float {
+    0%,
+    100% {
+      transform: translate3d(-4px, 0, 0);
+    }
+    50% {
+      transform: translate3d(4px, -5px, 0);
+    }
+  }
+
+  .leaflet-container {
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  }
+
+  .leaflet-popup-content-wrapper,
+  .leaflet-popup-tip {
+    background: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 20px 60px rgb(15 23 42 / 0.18);
+  }
+}
