@@ -10,7 +10,6 @@ export function App() {
     <BrowserRouter basename="/WeatherApp">
       <AppShell>
         <div id="main-content">
-          
           <Routes>
             <Route path="/" element={<DashboardPage />} />
             <Route path="/calendar" element={<CropCalendarPage />} />
